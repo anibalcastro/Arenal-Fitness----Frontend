@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 
-import Header from './componentes/Header/index';
+import Header from './componentes/Header/Header';
 import Footer from './componentes/Footer/Footer';
 import Login from './componentes/Login/Login';
 import Dashboard from './componentes/Dashboard/Dashboard'
@@ -26,6 +26,8 @@ import AgregarColaborador from './componentes/Colaboradores/AgregarColaboradores
 import EditarColaborador from './componentes/Colaboradores/EditarColaborador/EditarColaborador';
 import DetalleColaborador from './componentes/Colaboradores/DetalleColaboradores/DetalleColaboradores';
 import Facturacion from './componentes/Facturacion/Factuacion';
+import AgregarRutina from './componentes/Rutinas/AgregarRutina/AgregarRutina';
+import Rutinas from './componentes/Rutinas/Rutinas';
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
       <Route exact path="/dashboard/ejercicios" element={<Ejercicios />} />
       <Route exact path="/dashboard/ejercicios/agregar" element={<AgregarEjercicio />} />
       <Route exact path="/dashboard/ejercicios/editar" element={<EditarEjercicio />} />
+      <Route exact path='/dashboard/rutina'  element={<AgregarRutina/>}/>
+      <Route exact path='/dashboard/misrutinas' element={<Rutinas/>}/>
       <Route exact path="/dashboard/colaboradores" element={<Colaboradores />} />
       <Route exact path="/dashboard/colaboradores/agregar" element={<AgregarColaborador />} />
       <Route exact path="/dashboard/colaboradores/editar" element={<EditarColaborador />} />

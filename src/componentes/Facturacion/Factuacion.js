@@ -9,8 +9,8 @@ export default function Facturacion() {
 
     return (
         <React.Fragment>
-            <div className="container">
-            <Cliente />
+            <div className="container d-flex align-content-center justify-content-center flex-column">
+            <Cliente className="container d-flex align-content-center justify-content-center" />
             <hr/>
             <Articulos />
             </div>

@@ -10,7 +10,8 @@ function Login() {
 
     //Funcion para iniciar sesion.
     const iniciarSesion = () => {
-        localStorage.setItem('Login', JSON.stringify('Anibal Castro'));
+        localStorage.setItem('login', JSON.stringify('Anibal Castro'));
+        localStorage.setItem('rol', JSON.stringify('Administrador'));
         document.getElementById('formLogin').reset();
         window.location.href('/dashboard');
     }

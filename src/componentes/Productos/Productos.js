@@ -100,7 +100,7 @@ function Productos() {
                                 <td>
                                     {iterator.Precio}
                                 </td>
-                                <td>
+                                <td className='acciones'>
                                     <Link to={'/dashboard/productos/editar'} className="btn btn-success">Edit</Link>
                                     <Link to={'/dashboard'} onClick={() => eliminarCliente(iterator.id)} className="btn btn-danger">Delete</Link>
                                 </td>

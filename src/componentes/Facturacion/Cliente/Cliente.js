@@ -5,7 +5,7 @@ export default function Cliente() {
 
     return (
         <React.Fragment>
-            <div className="container">
+            <div className="container  d-flex align-content-center justify-items-center flex-column" >
                 <form className="fCliente">
                     <div className='jumbotron'>
                     <h1>

@@ -15,8 +15,12 @@ function Dashboard() {
     <React.Fragment>
       <div className="container d-flex justify-content-center flex-column">
         <Carousel className="my-2"/>
-        <div className="container d-flex justify-content-center flex-column px-2">
-          <h1 className="trainer">Entrenadores</h1>
+        <hr/>
+        <div className="container">
+          <div className="container  d-flex align-items-center justify-content-center py-2">
+          <h1>Entrenadores</h1>
+          </div>
+          
           <div className="container fotosEntrenadores">
             <img className="trainers mx-2" src={Glory} />
             <img className="trainers mx-2" src={Edgardo}  />

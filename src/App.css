@@ -16,8 +16,17 @@ h1,h4{
   font-family: fantasy;
 }
 
+#divRutina{
+  flex-direction: row;
+}
+
 #app{
   background-color:white;
+}
+
+#imgThumbnail{
+  height: 194px ;
+  width: 286px;
 }
 
 .App {
@@ -55,5 +64,24 @@ h1,h4{
   align-items: center;
   justify-content: center;
   height: 250px;
+}
+
+
+@media only screen and (max-width: 700px){
+  .fotosEntrenadores{
+      flex-direction: column;
+      margin-bottom: 5px;
+  }
+
+  .trainers{
+      padding-bottom: 5px;
+      width: 50%;
+      height: 50%;
+  }
+
+  #divRutina{
+    flex-direction: column;
+  }
+
 }
 

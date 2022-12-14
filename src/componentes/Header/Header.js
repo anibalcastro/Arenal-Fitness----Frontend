@@ -1,79 +1,84 @@
 import React, { useEffect } from "react";
-import "./Header.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Images from 'C:/utnweb/web3/arenal-fitness/src/Images/Logo.png';
-import { Link } from 'react-router-dom';
+import MenuIndex from "./index";
+import MenuAdministrador from './Administrador';
+import MenuColaborador from './Colaborador';
+import MenuCliente from './Cliente';
 
 function Header() {
 
-    //Function to logout
-    const cerrarSesion = () => {
-        localStorage.removeItem('Login');
-        window.location.href = "/";
-    }
-
-
+    let component = null;
 
     //Funtion to show menu
     const validateSession = () => {
-        let valido = false;
-        const userLogged = JSON.parse(localStorage.getItem('Login'));
-        console.log(userLogged);
-        if (userLogged) {
 
-            valido = true;
+        const userLogged = JSON.parse(localStorage.getItem('login'));
+        const userRol = JSON.parse(localStorage.getItem('rol'))
+        if (userLogged || userLogged != null) {
+            if(userRol === "Administrador"){
+                component = <MenuAdministrador/>;
+            }
+            else if (userRol === "Colaborador"){
+                component =  MenuColaborador;
+            }
+            else {
+                component = MenuCliente;
+            }
+
+            return true;
         }
 
-        return valido;
+        return false;
+    }
+
+    const validateRolAdministrador = () => {
+        if(JSON.parse(localStorage.getItem('rol')) == 'Administrador'){
+            return true;
+        }
+        return false;
+    }
+
+    const validateRolCliente = () => {
+        if(JSON.parse(localStorage.getItem('rol')) == 'Cliente'){
+            return true;
+        }
+        return false;
+    }
+
+    const validateRolColaborador = () => {
+        if(JSON.parse(localStorage.getItem('rol')) == 'Colaborador'){
+            return true;
+        }
+        return false;
     }
 
     useEffect(() => {
-        //Set title
-        validateSession();
+        console.log(validateSession());
+    });
 
-    }, []);
+    
 
     return (
         <React.Fragment >
-            <nav id='header' className="navbar navbar-expand-lg navbar-light bg-light" >
-                <Link class="navbar-brand" href="#">Navbar</Link>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                validateSession() ?
-                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <Link class="nav-link" href="/">Home <span class="sr-only">(current)</span></Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" href="/dashboard/clientes">Clientes</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" href="/dashboard/productos">Productos</Link>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <Link class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown link
-                            </Link>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <Link class="dropdown-item" href="#">Action</Link>
-                                <Link class="dropdown-item" href="#">Another action</Link>
-                                <Link class="dropdown-item" href="#">Something else here</Link>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            {
+                
+                !validateSession() ?
+                <MenuIndex />
+                    :
+                    validateRolAdministrador() ? 
+                    <MenuAdministrador />
+                    : 
+                    validateRolCliente()?
+                    <MenuCliente/> 
+                    :
+                    validateRolColaborador()?
+                    <MenuColaborador />
+                    : ""   
+            }
 
-                : <div className="navbar-brand" role="group" aria-label="Basic example">
-                    <Link id='btnIngresar' type="button" to="/login" className="btn btn-secondary">Ingresar</Link>
-                </div>
+        </React.Fragment>
 
-
-
-
-            </nav>
-        </React.Fragment>);
+    );
 }
 
 export default Header;
