@@ -16,6 +16,8 @@ export default function Filter(props) {
         { id: 6, nombreProducto: "B-NOX PRE-WORKOUT", cantidad: "20", url: "http://cdn.shopify.com/s/files/1/0026/8078/2897/products/C4.png?v=1616406275", Precio: "40.000" },
         { id: 7, nombreProducto: "ISO 100 Proteina", cantidad: "10", url: "https://gnc.com.mx/media/catalog/product/cache/b669420cf3540aeb652e4ae3322c681d/1/4/141603873-dmz-iso-100-gourmet-van-5-lbs.png", Precio: "60.000" },
         { id: 8, nombreProducto: "Botellas ", cantidad: "20", url: "http://cdn.shopify.com/s/files/1/1099/1898/products/BlenderBottle_Insulated_Stainless_Steel_Protein_Shaker_Bottle_Black.png?v=1624985507", Precio: "10.000" },
+        { id: 9, nombreProducto: "Mensualidad Regular", cantidad: "*", url: "#", Precio: "20.000" },
+        { id: 9, nombreProducto: "Mensualidad Estudiante", cantidad: "*", url: "#", Precio: "18.000" },
     ]
 
     //Captura que lo que esta escribiendo.
