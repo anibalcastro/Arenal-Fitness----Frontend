@@ -12,8 +12,10 @@ header{
 
 html{
   height: 100%;
-  width: 100%;
   background-color:white;
+  width: 100%;
+  margin: 0;
+  position: relative;
 }
 
 h1,h4{

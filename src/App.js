@@ -58,8 +58,7 @@ function App() {
       <Route exact path="/dashboard/colaboradores/agregar" element={<AgregarColaborador />} />
       <Route exact path="/dashboard/colaboradores/editar" element={<EditarColaborador />} />
       <Route exact path='/dashboard/colaboradores/detallecolaborador' element={<DetalleColaborador/>} />
-      </Routes>
-      <Footer />
+      </Routes> 
     </Router>
   </div>
   );
