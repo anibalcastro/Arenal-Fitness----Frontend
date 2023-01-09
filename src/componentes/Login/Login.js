@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
 import logo from "C:/utnweb/web3/arenal-fitness/src/Images/Logo.png";
-var axios = require("axios");
+import Alert  from "react-bootstrap/Alert";
+
 
 function Login() {
   const [data, setData] = useState({
@@ -49,32 +49,39 @@ function Login() {
       .then((data) => {
         const arrayData = data.data;
 
-        if (arrayData) {
-          console.log("Datos Correctos");
-
+        if (arrayData !== 'Invalid credencial!') {
           let json = {
             id: arrayData._id,
             fullname: arrayData.fullname,
             email: arrayData.email,
-            role: arrayData.role,
           };
 
+          let role = { userRole: arrayData.role};
+
+          localStorage.setItem("UserRole", JSON.stringify(role));
           localStorage.setItem("UserLogged", JSON.stringify(json));
-          document.getElementById("formLogin").reset();
-          window.location.href = "/dashboard/dashboard";
+          window.location.href ='/dashboard/dashboard';
         } else {
-          alert("Error, datos ingresados, no coinciden.");
-          document.getElementById("formLogin").reset();
+            //Alerta de error
+          document.getElementById('alertError').removeAttribute('hidden');
+          document.getElementById("loginForm").reset();
         }
       })
       .catch((error) => {
-        // enter your logic for when there is an error (ex. error toast)
-        console.log(error);
+        document.getElementById('alertServer').removeAttribute('hidden');
+        //console.log(error);
       });
   };
 
   return (
     <React.Fragment>
+       <Alert key={'danger'} variant='danger' className='alertError' id='alertError' hidden="hidden">
+         Error datos incorrectos. 
+         Intentelo de nuevo.
+        </Alert>
+        <Alert key={'danger'} variant='danger' className='alertServer' id='alertServer' hidden="hidden">
+         Error en el servidor, Intentelo mas tarde.
+        </Alert>
       <div className="container">
         <div className="container d-flex align-items-center justify-content-center">
           <img id="imgThumbnail" className="logo" src={logo} alt="logo"></img>
@@ -85,7 +92,7 @@ function Login() {
             <div className="fadeIn first">
               <h4 className="title">INICIO DE SESION</h4>
             </div>
-            <form id="formLogin">
+            <form id="loginForm">
               <input
                 type="text"
                 id="login"
@@ -106,14 +113,14 @@ function Login() {
                 onChange={handleChange}
               ></input>
             </form>
-            <Link
+            <button
               onClick={() => iniciarSesion()}
-              to="#"
+              //to={redirection}
               type="submit"
               className="btn btn-dark"
             >
               Entrar
-            </Link>
+            </button>
           </div>
         </div>
       </div>
