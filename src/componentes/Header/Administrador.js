@@ -22,9 +22,9 @@ export default function index() {
 
   //Function to logout
   const cerrarSesion = () => {
-    localStorage.removeItem("login");
-    localStorage.removeItem("rol");
-    window.location.href = "/";
+    localStorage.removeItem('UserLogged');
+    localStorage.removeItem('UserRole')
+    window.location.href = "/login";
   };
 
   return (
@@ -87,10 +87,10 @@ export default function index() {
               <MDBNavbarLink href="/dashboard/productos">
                 Productos
               </MDBNavbarLink>
-              <MDBNavbarLink onClick={cerrarSesion} href="#">
-                Salir
-              </MDBNavbarLink>
             </MDBNavbarNav>
+            <MDBContainer className='containerLogout'>
+              <button onClick={() => cerrarSesion()} className='btn btn-danger'>Salir</button>
+            </MDBContainer>
           </MDBCollapse>
         </MDBContainer>
       </MDBNavbar>

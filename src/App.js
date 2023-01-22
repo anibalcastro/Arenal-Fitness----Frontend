@@ -3,13 +3,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
-
+import Swal from 'sweetalert2'
 import Header from './componentes/Header/Header';
-import Footer from './componentes/Footer/Footer';
+//import Footer from './componentes/Footer/Footer';
 import Login from './componentes/Login/Login';
 import Dashboard from './componentes/Dashboard/Dashboard'
 import Clientes from './componentes/Clientes/Clientes';
-import AgregarClientes from './componentes/Clientes/Agregar/AgregarCliente';
+import AgregarClientes from './componentes/Clientes/AgregarClientes/AgregarCliente';
 import DetalleCliente from './componentes/Clientes/DetalleCliente/DetalleCliente';
 import EditarClientes from './componentes/Clientes/EditarCliente/EditarCliente';
 import Productos from './componentes/Productos/Productos';

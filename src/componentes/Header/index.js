@@ -6,7 +6,6 @@ import {
   MDBNavbar,
   MDBNavbarBrand,
   MDBNavbarToggler,
-  MDBNavbarNav,
   MDBNavbarLink,
   MDBIcon,
   MDBCollapse,
@@ -18,26 +17,26 @@ export default function index() {
   const [showNavSecond, setShowNavSecond] = useState(false);
 
   return (
-      <header>
-        <MDBNavbar expand='lg' light bgColor='light'>
-          <MDBContainer fluid>
-            <MDBNavbarBrand href='/'>Arenal Fitness GYM</MDBNavbarBrand>
-            <MDBNavbarToggler
-              aria-expanded='false'
-              aria-label='Toggle navigation'
-              onClick={() => setShowNavSecond(!showNavSecond)}
-            >
-              <MDBIcon icon='bars' fas />
-            </MDBNavbarToggler>
-            <MDBCollapse navbar show={showNavSecond}>
-              <MDBNavbarNav>
-                <MDBNavbarLink href='/login'>
-                  Ingresar
-                </MDBNavbarLink>
-              </MDBNavbarNav>
-            </MDBCollapse>
-          </MDBContainer>
-        </MDBNavbar>
-      </header>
+    <header>
+      <MDBNavbar expand='lg' light bgColor='light'>
+        <MDBContainer fluid>
+          <MDBNavbarBrand href='/'>Arenal Fitness GYM</MDBNavbarBrand>
+          <MDBNavbarToggler
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+            onClick={() => setShowNavSecond(!showNavSecond)}
+          >
+            <MDBIcon icon='bars' fas />
+          </MDBNavbarToggler>
+          <MDBCollapse navbar show={showNavSecond}>
+            <MDBContainer fluid className='containerLogin'>
+              <MDBNavbarLink href='/login'>
+                <button className='btn btn-success' >Ingresar</button>
+              </MDBNavbarLink>
+            </MDBContainer>
+          </MDBCollapse>
+        </MDBContainer>
+      </MDBNavbar>
+    </header>
   );
 }

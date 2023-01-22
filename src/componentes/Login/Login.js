@@ -38,7 +38,7 @@ function Login() {
       password: data.password,
     };
 
-    fetch("http://localhost:3012/api/users/login", {
+    fetch("http://localhost:3014/api/users/login", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -50,17 +50,19 @@ function Login() {
         const arrayData = data.data;
 
         if (arrayData !== 'Invalid credencial!') {
+          
           let json = {
             id: arrayData._id,
-            fullname: arrayData.fullname,
+            fullName: arrayData.fullName,
             email: arrayData.email,
+            expirationMembership: arrayData.expirationMembership,
           };
 
-          let role = { userRole: arrayData.role};
+          let role = arrayData.role;
 
           localStorage.setItem("UserRole", JSON.stringify(role));
           localStorage.setItem("UserLogged", JSON.stringify(json));
-          window.location.href ='/dashboard/dashboard';
+          window.location.href ='/dashboard';
         } else {
             //Alerta de error
           document.getElementById('alertError').removeAttribute('hidden');

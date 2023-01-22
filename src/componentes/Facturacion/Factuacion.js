@@ -107,7 +107,7 @@ export default function Facturacion() {
     return (
         <React.Fragment>
 
-            <div id='divRutina' className="container d-flex justify-content-center align-items-start">
+            <div id='divFacturacion' className="container d-flex justify-content-center align-items-start">
                 <div className="wrapper fadeInDown">
                     <div id="formContent">
                         <div className="fadeIn first">

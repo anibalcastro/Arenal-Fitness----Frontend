@@ -7,7 +7,6 @@ import {
   MDBNavbarBrand,
   MDBNavbarToggler,
   MDBNavbarNav,
-
   MDBNavbarLink,
   MDBIcon,
   MDBCollapse,
@@ -23,10 +22,10 @@ export default function index() {
 
   //Function to logout
   const cerrarSesion = () => {
-    localStorage.removeItem('login');
-    localStorage.removeItem('rol')
+    localStorage.removeItem('UserLogged');
+    localStorage.removeItem('UserRole');
     window.location.href = "/";
-}
+  }
 
   return (
     <React.Fragment>
@@ -70,8 +69,11 @@ export default function index() {
                 <MDBNavbarLink href="/dashboard/productos">
                   Productos
                 </MDBNavbarLink>
-                <MDBNavbarLink onClick={cerrarSesion} href="#">Salir</MDBNavbarLink>
+
               </MDBNavbarNav>
+              <MDBContainer className='containerLogout'>
+                <button onClick={() => cerrarSesion()} className='btn btn-danger'>Salir</button>
+              </MDBContainer>
             </MDBCollapse>
           </MDBContainer>
         </MDBNavbar>

@@ -31,7 +31,7 @@ function Dashboard() {
 
         <div className="contHorarios container">
           <h1>Horarios</h1>
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">Dia</th>

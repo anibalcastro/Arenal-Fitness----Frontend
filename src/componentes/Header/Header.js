@@ -7,11 +7,14 @@ import MenuCliente from './Cliente';
 
 function Header() {
 
+    useEffect(() => {
+        validateSession();
+    });
 
     //Funtion to show menu
     const validateSession = () => {
 
-        const userLogged = JSON.parse(localStorage.getItem('login'));
+        const userLogged = JSON.parse(localStorage.getItem('UserLogged'));
         if (userLogged || userLogged != null) {
             return true;
         }
@@ -19,30 +22,25 @@ function Header() {
     }
 
     const validateRolAdministrador = () => {
-        if (JSON.parse(localStorage.getItem('rol')) == 'Administrador') {
+        if (JSON.parse(localStorage.getItem('UserRole')) === 'Administrador') {
             return true;
         }
         return false;
     }
 
     const validateRolCliente = () => {
-        if (JSON.parse(localStorage.getItem('rol')) == 'Cliente') {
+        if (JSON.parse(localStorage.getItem('UserRole')) === 'Cliente') {
             return true;
         }
         return false;
     }
 
     const validateRolColaborador = () => {
-        if (JSON.parse(localStorage.getItem('rol')) == 'Colaborador') {
+        if (JSON.parse(localStorage.getItem('UserRole')) === 'Colaborador') {
             return true;
         }
         return false;
     }
-
-    useEffect(() => {
-        console.log(validateSession());
-    });
-
 
 
     return (
